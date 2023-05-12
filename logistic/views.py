@@ -19,7 +19,7 @@ class StockViewSet(ModelViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        product_id = self.request.query_params.get('product_id', None)
+        product_id = self.request.query_params.get('products', None)
         if product_id is not None:
             queryset = queryset.filter(positions__product_id=product_id)
         return queryset
